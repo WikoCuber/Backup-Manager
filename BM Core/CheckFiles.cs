@@ -40,6 +40,13 @@ namespace BM_Core
                 }
             }
 
+            //Don't division by 0
+            if(TotalElements == 0 || TotalSize == 0)
+            {
+                TotalElements = 1;
+                TotalSize = 1;
+            }
+
             //Not displays when directory has protected file
             if (TotalSize < 0)
                 return "";

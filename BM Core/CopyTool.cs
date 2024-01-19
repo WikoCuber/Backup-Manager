@@ -38,9 +38,11 @@ namespace BM_Core
                 }
 
             }
-            catch
+            catch (Exception ex)
             {
-                //To do
+                StreamWriter sw = new(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Backup Manager\Error.log", true);
+                sw.WriteLine(DateTime.Now.ToString() + "          " + ex.Message);
+                sw.Close();
             }
         }
         public void CopyDirectory(string from, string to, CancellationToken token)
